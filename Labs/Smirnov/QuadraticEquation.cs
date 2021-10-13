@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using core;
 
-
-
-namespace Labs
+namespace Smirnov
 {
-    class QuadraticEquation : LinearEquation
+    class QuadraticEquation : LinearEquation, IEquationInterface
     {
         public List<double> Solve(double a, double b, double c)
         {
@@ -13,7 +12,7 @@ namespace Labs
             {
                 return SolveLinearEquation(b, c);
             }
-
+            SmirnovLog.I().Log("Определено, что это квадратное уравнение");
             double descriminant = SolveDesriminant(a, b, c);
             if (descriminant < 0)
             {

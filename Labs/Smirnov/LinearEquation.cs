@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Labs
+namespace Smirnov
 {
     class LinearEquation
     {
@@ -13,7 +13,7 @@ namespace Labs
             {
                 throw new Exception("Определено, что такое уравнение не существует");
             }
-
+            SmirnovLog.I().Log("Определено, что это линейное уравнение");
             return x = new List<double>() { -b / a };
         }
     }
