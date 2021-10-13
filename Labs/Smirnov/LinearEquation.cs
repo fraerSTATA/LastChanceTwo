@@ -1,6 +1,9 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Smirnov
 {
@@ -11,7 +14,7 @@ namespace Smirnov
         {
             if (a == 0)
             {
-                throw new Exception("Определено, что такое уравнение не существует");
+                throw new SmirnovException("Определено, что такое уравнение не существует");
             }
             SmirnovLog.I().Log("Определено, что это линейное уравнение");
             return x = new List<double>() { -b / a };

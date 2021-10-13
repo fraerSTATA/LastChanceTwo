@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using System.Threading.Tasks;
 using core;
 
 namespace Smirnov
@@ -16,7 +18,7 @@ namespace Smirnov
             double descriminant = SolveDesriminant(a, b, c);
             if (descriminant < 0)
             {
-                throw new Exception("Ошибка: уравнение не имеет решений");
+                throw new SmirnovException("Ошибка: уравнение не имеет решений");
             }
             if (descriminant == 0)
             {
