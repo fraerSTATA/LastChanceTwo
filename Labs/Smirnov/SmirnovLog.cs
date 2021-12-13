@@ -1,6 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using core;
 
@@ -25,6 +25,14 @@ namespace Smirnov
         public ILogInterface Write()
         {
             WriteConsole(logs.ToArray());
+            string fileName = @"log\" + DateTime.Now.ToString("dd.MM.yyyy.HH.mm.ss.ms") + ".log";
+            Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\log");
+            string[] output = logs.ToArray();
+            using (var sw = new StreamWriter(fileName,true ,Encoding.UTF8))
+            {
+                sw.WriteLine(FormatLog(output));
+
+            }
             return this;
         }
         private class LazySingleton
