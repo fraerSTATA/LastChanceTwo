@@ -2,6 +2,7 @@
 using core;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Smirnov
 {
@@ -21,8 +22,16 @@ namespace Smirnov
                 }
                 return s;
             };
-
-
+            try
+            {
+                string version = File.ReadAllLines(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\version.txt")[0];
+                Console.WriteLine(version);
+               
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             try
             {
                 QuadraticEquation a = new QuadraticEquation();
